@@ -1,5 +1,6 @@
 package com.example.java_ifortex_test_task.entity;
 
+import com.example.java_ifortex_test_task.util.DeviceTypeConverter;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -19,7 +20,8 @@ public class Session {
     private Long id;
 
     @Column(name = "device_type", nullable = false)
-    @Enumerated(EnumType.ORDINAL)
+    //@Enumerated(EnumType.ORDINAL)
+    @Convert(converter = DeviceTypeConverter.class)
     private DeviceType deviceType;
 
     @Column(name = "ended_at_utc")
